@@ -4,12 +4,12 @@ function House(props) {
   const houseProps = props
     return(
       <div>
-        {houseProps.address}
-        {houseProps.name}
-        {houseProps.city}
-        {houseProps.state}
-        {houseProps.zip}
-        <button>Delete</button>
+        <p>{houseProps.address}</p>
+        <p>{houseProps.name}</p>
+        <p> {houseProps.city}</p>
+        <p>{houseProps.state}</p>
+        <p> {houseProps.zip}</p>
+        <button onClick={() => props.delete(houseProps.id)}>Delete</button>
       </div>
     )
   }

@@ -13,6 +13,7 @@ class Wizard extends Component {
       city: ``,
       state: ``,
       zip: ``,
+      id: ''
       
     }
   }
@@ -23,16 +24,17 @@ class Wizard extends Component {
     })
   }
 
-  createHouse() {
-    const{ input } =this.state;
-    Axios.post('/api/houses', {house: input}).then(res => {  
+  addHouse(name, address, city, state, zip){
+    const data = {name: name, address: address, city: city, state: state, zip: zip}
+    Axios.post(`/api/houses`, data ).then(res => {
+      this.state.house.push(data);
+      this.props.history.push('/')
       this.setState({
-        house: res.data,
-        input: ''
+        house: this.state.house
       })
-      this.props.history.push('/')    
     })
   }
+  
 
   render() {
     return(
@@ -68,7 +70,8 @@ class Wizard extends Component {
             type='text'
             placeholder='State'
             value={this.state.state}
-            onChange={this.handleInput} />
+            onChange={this.handleInput} 
+            maxlength="2"/>
           <input 
             id='zip'
             type='text'
@@ -76,7 +79,7 @@ class Wizard extends Component {
             value={this.state.zip}
             onChange={this.handleInput} />
 
-          <button onClick={(e) => this.state.createHouse()} >Complete</button>
+          <button onClick={() => this.addHouse(this.state.name, this.state.address, this.state.city, this.state.state, this.state.zip)} >Complete</button>
           </div>
     </div>
     )}

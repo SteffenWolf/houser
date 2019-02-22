@@ -30,5 +30,6 @@ massive(CONNECTION_STRING).then(db => {
 //endpoints
 app.get('/api/houses', ctrl.getAll)
 app.post('/api/houses', ctrl.addHouse)
+app.delete('/api/houses/:id', ctrl.destroyHouse)
 
 app.listen(SERVER_PORT, () => console.log(`Listening on port ${SERVER_PORT}`));
