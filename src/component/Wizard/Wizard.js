@@ -24,7 +24,13 @@ class Wizard extends Component {
   render() {
     return(
       <div>
-        <h1>Wizard</h1>
+        
+        <div>
+          Add New Listing
+          
+          <Link to={`/`}><button>Add New Property</button></Link> 
+
+        </div>
           <div>
           <input 
             id='name'
@@ -56,8 +62,9 @@ class Wizard extends Component {
             placeholder='Zipcode'
             value={this.state.zip}
             onChange={this.handleInput} />
+
+          <button>Complete</button>
           </div>
-        <Link to={`/`}><button>Cancel</button></Link>
     </div>
     )}
 }
