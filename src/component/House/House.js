@@ -9,8 +9,8 @@ function House(props) {
         {houseProps.city}
         {houseProps.state}
         {houseProps.zip}
+        <button>Delete</button>
       </div>
-      <button>Delete</button>
     )
   }
   export default House

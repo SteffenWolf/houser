@@ -47,7 +47,7 @@ class Dashboard extends Component {
         Dashboard
         {mapHouses}        
         
-        <button onClick={() => this.props.history.push('/wizard')}> Cancel </button>
+        <button onClick={() => this.props.history.push('/wizard')}> Add New Property </button>
       </div>
     )}
 }
